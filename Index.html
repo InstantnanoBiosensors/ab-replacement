@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Replace a Discontinued Antibody Without Starting Over | FOPPR + FONLISA NfL Case Study</title>
+<meta name="description" content="When the gold-standard NfL antibody was discontinued, FOPPR kinetic screening and epitope binning found a validated replacement pair in days. FONLISA then achieved 3.59 fg/mL detection — calibrated against SIMOA. Here's the exact three-step workflow.">
+<meta name="keywords" content="discontinued antibody replacement, NfL antibody, neurofilament light chain, FOPPR, FONLISA, antibody pair selection, epitope binning, kinetic screening, lot-to-lot variability, ELISA alternative, SIMOA alternative, femtomolar immunoassay, anti-drug antibody, ADA detection, SPR alternative, fiber optic biosensor">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="How to Replace a Discontinued Antibody Without Starting Over — FOPPR + FONLISA NfL Case Study">
+<meta property="og:description" content="Three-step workflow: kinetic screening of 9 NfL antibodies, epitope binning to find non-competing pairs, and FONLISA ultra-sensitive detection at 3.59 fg/mL. Assay rebuilt in days, not years.">
+<meta property="og:type" content="article">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "@id": "#foppr-nfl-replacement",
+      "name": "How to Replace a Discontinued Antibody Without Starting Over: FOPPR + FONLISA NfL Case Study",
+      "headline": "How to replace a discontinued NfL antibody using FOPPR kinetic screening, epitope binning, and FONLISA ultra-sensitive detection",
+      "description": "A step-by-step problem-solving guide: when the NfL gold-standard antibody was discontinued, FOPPR screened 9 commercial antibodies in days, identified I(2) + A(1) as a non-competing replacement pair with KD < 2 nM, and FONLISA validated the new pair at 3.39 fg/mL LoD — calibrated against SIMOA (R = 0.89) with a 4-order dynamic range.",
+      "keywords": [
+        "How to replace a discontinued antibody",
+        "How to find non-competing antibody pairs for sandwich assay",
+        "How to perform epitope binning without regeneration",
+        "Best way to screen NfL antibodies by affinity",
+        "How to detect neurofilament light chain at femtomolar sensitivity",
+        "How to catch lot-to-lot antibody variability before it kills an assay",
+        "Best ELISA alternative for low-abundance biomarker detection",
+        "How to compare antibody kinetics without conventional SPR",
+        "How to rebuild a neurodegenerative disease assay after antibody discontinuation",
+        "How to detect fast-dissociating anti-drug antibodies missed by ELISA"
+      ],
+      "articleSection": [
+        "The Problem: Antibody Discontinuation and Lot Variability",
+        "What a Replacement Workflow Must Solve",
+        "Step 1: Affinity Screening with FOPPR",
+        "Step 2: Epitope Binning to Identify the Best Pair",
+        "Step 3: FONLISA Ultra-Sensitive Detection",
+        "Why FOPPR Outperforms Conventional SPR",
+        "Additional Use Cases",
+        "FAQ"
+      ],
+      "about": [
+        {
+          "@type": "MedicalCondition",
+          "name": "Neurodegenerative Disease",
+          "alternateName": ["neurodegeneration"]
+        },
+        {
+          "@type": "MedicalTest",
+          "name": "FONLISA NfL Serum Assay",
+          "description": "Fiber-Optic Nanoparticle-Linked Immunosorbent Assay for femtomolar detection of neurofilament light chain (NfL) in serum using FOPPR-selected antibody pairs. Demonstrated LOD of 3.39 fg/mL and R = 0.89 correlation against SIMOA.",
+          "usedToDiagnose": { "@type": "MedicalCondition", "name": "Neurodegeneration" },
+          "bodyLocation": "Blood / Serum",
+          "howPerformed": "Sandwich immunoassay: capture antibody on glass fiber; NfL binds; detection antibody conjugated to gold nanoparticle generates plasmon resonance signal"
+        },
+        {
+          "@type": "MedicalDevice",
+          "name": "FOPPR",
+          "description": "Fiber-Optic Plasmon Photonic Resonance instrument for real-time, label-free antibody screening, affinity ranking, and epitope binning. Screens up to 4 antibodies sequentially on a single chip with no regeneration step. Self-assembled gold monolayer eliminates dextran-matrix rebinding artifacts."
+        }
+      ],
+      "mentions": [
+        {"@type": "BioChemEntity", "name": "Neurofilament Light Chain", "alternateName": ["NfL", "NFL", "NEFL"]},
+        {"@type": "ChemicalSubstance", "name": "Gold nanoparticle", "alternateName": "AuNP"},
+        {"@type": "Organization", "name": "Uman Diagnostics", "description": "Original supplier of the gold-standard NfL antibody, later discontinued after acquisition"}
+      ],
+      "mainEntityOfPage": "#foppr-nfl-replacement",
+      "inLanguage": "en"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do I replace a discontinued antibody without rebuilding my assay from scratch?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Use FOPPR to screen multiple commercial antibodies simultaneously for binding kinetics (Ka, Kd, KD). From the top-affinity candidates, run epitope binning to identify a non-competing pair for a sandwich configuration. Validate the new pair with FONLISA. In the NfL case study, this workflow identified Abcam 1 and IReal 2 as equivalent replacements for the discontinued Uman Diagnostics antibody, with KD < 2 nM and LOD of 3.59 fg/mL."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How can I catch lot-to-lot antibody variability before it corrupts my data?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Run FOPPR kinetic QC: compare the binding sensorgram of the new lot against your validated reference in under an hour. Real-time association and dissociation profiles reveal aggregation, reduced affinity, or off-target binding before the antibody reaches your experiment. If the new lot fails, use FOPPR screening to identify an alternative that meets spec."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does ELISA miss fast-dissociating anti-drug antibodies?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ELISA is an endpoint assay. Fast-dissociating analytes (ADAs with high kd) detach during wash steps before the signal is read. FOPPR monitors binding continuously in real time — no washes, no snapshots — so transient interactions are captured and characterised by their kinetic profiles, not discarded."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does FOPPR differ from conventional SPR for antibody screening?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Conventional SPR uses a dextran matrix that traps analytes, slows dissociation, and inflates association constants, and requires regeneration steps between cycles that can damage the ligand. FOPPR uses a self-assembled gold nanoparticle monolayer on a glass fiber — a 3D, open surface. Molecules diffuse freely, dissociation occurs naturally, and no regeneration is needed between antibody injections. The result is cleaner ka/kd values, faster screening, and lower technical burden."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How sensitive is FONLISA for NfL detection compared to SIMOA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "FONLISA achieved a 3.59 fg/mL limit of detection for NfL in serum using less than 20 µL of sample. Its measurements correlate with SIMOA at R = 0.89 across control and KD patient groups, with an R² = 0.995 calibration curve and a dynamic range spanning approximately 4 orders of magnitude."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "#video-epitope-binning",
+      "name": "Epitope Binning with FOPPR: Sequential Antibody Pair Screening",
+      "description": "Demonstration of FOPPR sequential epitope binning, showing how up to four antibodies are introduced onto an NfL-immobilized fiber without regeneration to identify non-competing, sandwich-compatible antibody pairs.",
+      "thumbnailUrl": "https://img.youtube.com/vi/zSc1aVxIJuI/hqdefault.jpg",
+      "uploadDate": "2025-01-01",
+      "contentUrl": "https://youtu.be/zSc1aVxIJuI",
+      "embedUrl": "https://www.youtube.com/embed/zSc1aVxIJuI",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Instant NanoBiosensors",
+        "url": "https://www.instantnano.com/"
+      }
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "#video-foppr-vs-spr",
+      "name": "Why FOPPR Outperforms Conventional SPR for Antibody Screening",
+      "description": "Overview of FOPPR's 3D gold nanoparticle sensing surface and capillary/gravity-driven sample delivery, and how this design avoids the dextran-matrix rebinding and mass-transport limitations of conventional SPR for faster, simpler antibody kinetic screening.",
+      "thumbnailUrl": "https://img.youtube.com/vi/uUPKGC5fJ9Y/hqdefault.jpg",
+      "uploadDate": "2025-01-01",
+      "contentUrl": "https://youtu.be/uUPKGC5fJ9Y",
+      "embedUrl": "https://www.youtube.com/embed/uUPKGC5fJ9Y",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Instant NanoBiosensors",
+        "url": "https://www.instantnano.com/"
+      }
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "#video-fonlisa-overview",
+      "name": "FONLISA Ultra-Sensitive NfL Detection: Workflow Overview",
+      "description": "Walkthrough of the FONLISA sandwich immunoassay for ultra-sensitive serum NfL detection, including the FOPPR-selected antibody pair, gold nanoparticle signal generation, and validation against SIMOA.",
+      "thumbnailUrl": "https://img.youtube.com/vi/yNPXj9eCRys/hqdefault.jpg",
+      "uploadDate": "2025-01-01",
+      "contentUrl": "https://youtu.be/yNPXj9eCRys",
+      "embedUrl": "https://www.youtube.com/embed/yNPXj9eCRys",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Instant NanoBiosensors",
+        "url": "https://www.instantnano.com/"
+      }
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --ink: #1a3a5c;
+    --ink-muted: #4a5568;
+    --ink-faint: #8a96a3;
+    --accent: #0a4b8c;
+    --accent-light: #e6f0fa;
+    --accent-mid: #1a6bbf;
+    --rule: #d1dce8;
+    --surface: #f8fafc;
+    --white: #ffffff;
+    --warn: #7c3a00;
+    --warn-bg: #fef3e2;
+    --danger: #7c1f1f;
+    --danger-bg: #fdeaea;
+    --success: #0f4c2a;
+    --success-bg: #e6f4ed;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    color: var(--ink);
+    background: var(--white);
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
+
+  header {
+    background: var(--ink);
+    color: var(--white);
+    padding: 5rem 2rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(
+      -55deg, transparent, transparent 40px,
+      rgba(255,255,255,0.015) 40px, rgba(255,255,255,0.015) 41px
+    );
+    pointer-events: none;
+  }
+  .header-inner { max-width: 860px; margin: 0 auto; position: relative; }
+  .header-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+    display: flex; align-items: center; gap: 0.6rem;
+  }
+  .header-tag::before {
+    content: '';
+    display: inline-block; width: 2rem; height: 1px;
+    background: var(--white);
+  }
+  h1.title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 5vw, 3.25rem);
+    line-height: 1.15;
+    font-weight: 400;
+    color: var(--white);
+    margin-bottom: 1.25rem;
+    max-width: 700px;
+  }
+  h1.title em { font-style: italic; color: #7eb8f0; }
+  .header-sub {
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--white);
+    max-width: 600px;
+    line-height: 1.65;
+  }
+  .header-meta {
+    margin-top: 2.5rem;
+    display: flex; flex-wrap: wrap; gap: 1.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--white);
+    letter-spacing: 0.08em;
+  }
+  .header-meta span::before { content: '// '; color: rgba(255,255,255,0.4); }
+
+  nav {
+    background: var(--surface);
+    border-bottom: 1px solid var(--rule);
+    position: sticky; top: 0; z-index: 100;
+  }
+  .nav-inner {
+    max-width: 860px; margin: 0 auto; padding: 0 2rem;
+    display: flex; align-items: center; overflow-x: auto;
+  }
+  .nav-inner a {
+    display: block; padding: 0.9rem 1.1rem;
+    font-size: 0.78rem; font-weight: 400;
+    color: var(--ink-muted); text-decoration: none;
+    white-space: nowrap; letter-spacing: 0.02em;
+    border-bottom: 2px solid transparent;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .nav-inner a:hover { color: var(--accent); border-color: var(--accent); }
+
+  main { padding: 3rem 0 5rem; }
+  section { margin-bottom: 4rem; scroll-margin-top: 3.5rem; }
+
+  h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.75rem;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--rule);
+    line-height: 1.25;
+  }
+  h3 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--accent);
+    margin: 2rem 0 0.6rem;
+    letter-spacing: 0.01em;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  h3::before {
+    content: '';
+    display: inline-block; width: 0.5rem; height: 0.5rem;
+    border-radius: 50%; background: var(--accent);
+    flex-shrink: 0;
+  }
+  p { margin-bottom: 1rem; font-size: 0.97rem; }
+  p:last-child { margin-bottom: 0; }
+  strong { font-weight: 500; color: var(--ink); }
+
+  .callout {
+    border-left: 3px solid var(--accent);
+    background: var(--accent-light);
+    padding: 1.1rem 1.4rem;
+    border-radius: 0 6px 6px 0;
+    margin: 1.75rem 0;
+  }
+  .callout-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    margin-bottom: 0.4rem;
+    font-weight: 500;
+  }
+  .callout p { font-size: 0.93rem; color: #0f2d4a; margin: 0; line-height: 1.65; }
+  .callout.warn { border-color: #c07000; background: var(--warn-bg); }
+  .callout.warn .callout-label { color: var(--warn); }
+  .callout.warn p { color: var(--warn); }
+  .callout.danger { border-color: #c02000; background: var(--danger-bg); }
+  .callout.danger .callout-label { color: var(--danger); }
+  .callout.danger p { color: var(--danger); }
+
+  .stat-strip {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 1.75rem 0;
+  }
+  .stat-cell { background: var(--white); padding: 1.25rem 1.5rem; }
+  .stat-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2rem;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 0.35rem;
+  }
+  .stat-label { font-size: 0.78rem; color: var(--ink-muted); line-height: 1.4; }
+
+  ul, ol { padding-left: 1.4rem; margin-bottom: 1rem; }
+  li { font-size: 0.97rem; margin-bottom: 0.45rem; }
+  li::marker { color: var(--accent); }
+
+  .table-wrap { overflow-x: auto; margin: 1.75rem 0; border-radius: 8px; border: 1px solid var(--rule); }
+  table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  thead tr { background: var(--ink); }
+  thead th {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-weight: 500;
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    letter-spacing: 0.02em;
+  }
+  tbody tr:nth-child(even) { background: var(--surface); }
+  tbody tr:hover { background: var(--accent-light); }
+  td {
+    padding: 0.75rem 1rem;
+    border-top: 1px solid var(--rule);
+    color: var(--ink);
+    vertical-align: top;
+    line-height: 1.55;
+  }
+  td:first-child { font-weight: 500; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: var(--accent); }
+  td.good { color: var(--success); font-weight: 400; font-family: 'DM Sans', sans-serif; font-size: 0.88rem; }
+  td.bad { color: var(--danger); font-weight: 400; font-family: 'DM Sans', sans-serif; font-size: 0.88rem; }
+
+  .faq-item { border-top: 1px solid var(--rule); padding: 1.25rem 0; }
+  .faq-item:last-child { border-bottom: 1px solid var(--rule); }
+  .faq-q {
+    font-weight: 500; font-size: 0.95rem; color: var(--ink);
+    margin-bottom: 0.5rem; display: flex; gap: 0.75rem;
+  }
+  .faq-q::before {
+    content: 'Q';
+    font-family: 'JetBrains Mono', monospace; font-size: 0.7rem;
+    background: var(--accent); color: white;
+    padding: 0.15rem 0.4rem; border-radius: 3px;
+    flex-shrink: 0; margin-top: 0.1rem; height: fit-content;
+  }
+  .faq-a { font-size: 0.93rem; color: var(--ink-muted); padding-left: 1.75rem; line-height: 1.7; }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1.75rem 0;
+  }
+  .feature-card {
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: 1.25rem 1.4rem;
+    background: var(--surface);
+  }
+  .feature-card-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent-mid);
+    margin-bottom: 0.5rem;
+  }
+  .feature-card h4 {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+  .feature-card p { font-size: 0.88rem; color: var(--ink-muted); margin: 0; line-height: 1.6; }
+
+  /* Step workflow */
+  .step-flow {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr auto 1fr;
+    gap: 0;
+    align-items: stretch;
+    margin: 1.75rem 0;
+  }
+  .step-box {
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: 1.25rem 1.4rem;
+    background: var(--white);
+  }
+  .step-box-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent-mid);
+    margin-bottom: 0.5rem;
+  }
+  .step-box h4 { font-size: 0.95rem; font-weight: 500; color: var(--ink); margin-bottom: 0.4rem; }
+  .step-box p { font-size: 0.85rem; color: var(--ink-muted); margin: 0; line-height: 1.55; }
+  .step-arrow {
+    display: flex; align-items: center; justify-content: center;
+    padding: 0 0.75rem;
+    color: var(--accent-mid);
+    font-size: 1.25rem;
+    flex-shrink: 0;
+  }
+
+  /* Pain list */
+  .pain-list { list-style: none; padding: 0; margin: 1.25rem 0; }
+  .pain-list li {
+    display: flex; align-items: flex-start; gap: 0.75rem;
+    padding: 0.85rem 1rem;
+    border-bottom: 1px solid var(--rule);
+    font-size: 0.93rem;
+  }
+  .pain-list li:last-child { border-bottom: none; }
+  .pain-list li::before {
+    content: '';
+    width: 8px; height: 8px; border-radius: 50%;
+    background: #c02000;
+    flex-shrink: 0; margin-top: 6px;
+  }
+  .pain-list strong { display: block; margin-bottom: 2px; font-size: 0.93rem; }
+  .pain-list span { color: var(--ink-muted); font-size: 0.88rem; }
+
+  /* Outcome strip */
+  .outcome-box {
+    border-left: 3px solid #1a8a4a;
+    background: var(--success-bg);
+    padding: 1.1rem 1.4rem;
+    border-radius: 0 6px 6px 0;
+    margin: 1.75rem 0;
+  }
+  .outcome-box .callout-label { color: var(--success); }
+  .outcome-box p { font-size: 0.93rem; color: var(--success); margin: 0; line-height: 1.65; }
+
+  footer {
+    background: var(--surface);
+    border-top: 1px solid var(--rule);
+    padding: 2.5rem 2rem;
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--ink-faint);
+  }
+  footer strong { color: var(--ink-muted); }
+
+  @media (max-width: 700px) {
+    header { padding: 3rem 1.5rem 2.5rem; }
+    h1.title { font-size: 1.75rem; }
+    .page { padding: 0 1.25rem; }
+    .two-col { grid-template-columns: 1fr; }
+    .step-flow { grid-template-columns: 1fr; }
+    .step-arrow { transform: rotate(90deg); padding: 0.5rem 0; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <p class="header-tag">Technical Whitepaper — Antibody Replacement</p>
+    <h1 class="title">Your Assay Didn't Fail. <em>Your Antibody Did.</em></h1>
+    <p class="header-sub">Your key antibody just got discontinued or a new batch suddenly stopped working. Either way, months or even years of work are suddenly at risk.</p>
+     
+    <p><em>But you don’t have to start over.</em></p> 
+    <p>Find out how to identify and validate replacement antibody pair in days, not months.</p>
+    <div class="header-meta">
+      <span>FOPPR + FONLISA Integrated Workflow</span>
+      <span>3.39 fg/mL LoD for NfL</span>
+      <span>R = 0.89 vs SIMOA</span>
+      <span>9 antibodies screened, 1 pair selected</span>
+    </div>
+  </div>
+</header>
+
+<nav aria-label="Page sections">
+  <div class="nav-inner">
+    <a href="#problem">The Problem</a>
+    <a href="#requirements">What to Solve</a>
+    <a href="#step1">Step 1: Screen</a>
+    <a href="#step2">Step 2: Select</a>
+    <a href="#step3">Step 3: Detect</a>
+    <a href="#comparison">vs. Competitors</a>
+    <a href="#faq">FAQ</a>
+  </div>
+</nav>
+
+<main>
+<div class="page">
+
+  <!-- PROBLEM -->
+  <section id="problem">
+    <h2>The Problem: How Antibody Failure Can Derail Years of Research</h2>
+
+    <p>Antibody discontinuation and lot-to-lot variability are common causes of assay disruption and irreproducibility in biomarker research.</p>
+    <ul class="pain-list">
+      <li>
+        <div>
+          <strong>Scenario 1: Antibody discontinued.</strong>
+          <span>When a trusted abtibody became unavailable after a $22.5M acquisition.</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Scenario 2: New lot fails</strong>
+          <span>In 2006, Yale pathologist David Rimm developed a promising antibody-based melanoma test supported by over $2 million funding. Three years later, a new batch of antibodies from the same supplier failed to work.</span>
+        </div>
+      </li>
+    </ul>
+    <p>Months or years of assay optimization are at risk due to decisions or supply changes outside your control.</p>
+
+    <div class="callout danger">
+      <div class="callout-label">Don’t start over. Replace smarter.</div>
+      <p>See how one neuroscience team used FOPPR kinetic screening and FONLISA ultrasensitive detection to identify and validate a replacement antibody pair in days, not months.</p>
+    </div>
+  </section>
+
+  <!-- REQUIREMENTS -->
+  <section id="requirements">
+    <h2>What a Replacement Workflow Must Solve</h2>
+    <p>A replacement workflow must rapidly identify candidates with equal or better assay performance.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Challenge</th>
+            <th>Solution</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Affinity drops or weak signal</td>
+            <td>Real-time measurement of ka, kd, and KD across all candidates. Not just yes/no binding.</td>
+          </tr>
+          <tr>
+            <td>Epitope Incompatibility</td>
+            <td>Identification of non-competing antibody pairs suitable for sandwich assay formation.</td>
+          </tr>
+          <tr>
+            <td>Tedious optimization delays research.</td>
+            <td>Rapid candidate selection without regeneration or optimization steps.</td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout">
+      <div class="callout-label">Design Principle</div>
+      <p>Replace cumbersome trial-and-error troubleshooting with a faster, kinetics-guided validation workflow on a compact, easy-to-use platform.</p>
+  </section>
+
+  <!-- STEP 1 -->
+  <section id="step1">
+    <h2>Step 1. Screen: Affinity Analysis to Find Top Candidates</h2>
+
+    <h3>Technical Background</h3>
+    <p>FOPPR enables rapid screening of commercial NfL antibodies by measuring real-time binding kinetics without repeated regeneration steps or extensive optimization to minimize mass transport limitation, analyte retention, and rebinding effects.</p>
+
+    <p>For each candidate, FOPPR measures the association rate constant (ka), dissociation rate constant (kd), and equilibrium dissociation constant (KD = kd/ka). These parameters help distinguish antibodies that bind strongly and remain stable from those that produce signal but dissociate quickly.</p>
+
+    <h3>Experimental Procedure & Data</h3>
+    <p>Nine commercial NfL antibodies were screened to compare their binding affinity for NfL. Their KD values ranged from 1.4 nM to 37.2 nM, where a lower KD indicates stronger overall binding affinity. Two antibodies, A(1) and I(2), showed KD values below 10 nM (1.96 nM and 1.4 nM, respectively), making them primary candidates for epitope binning to determine whether they could work together as a sandwich antibody pair.</p>
+
+    <div class="callout">
+      <div class="callout-label">Why Real-Time Measurement Matters</div>
+      <p>Real-time measurement captures the full binding behavior of an interaction: how fast the complex forms, how tightly it binds, and how long it remains associated. Unlike endpoint assays, which provide only a snapshot after incubation and wash steps, real-time methods continuously monitor association and dissociation. This prevents fast-dissociating binders from being misinterpreted as false negatives.</p>
+    </div>
+
+<figure style="margin: 1.75rem 0; border: 1px solid var(--rule); border-radius: 8px; overflow: hidden; background: var(--surface);">
+  <img
+  src="https://res.cloudinary.com/drfkpdjsv/image/upload/v1781231244/NfL1_1600_uzjd2e.webp"
+  srcset="
+    https://res.cloudinary.com/drfkpdjsv/image/upload/w_800,q_100,f_auto/v1781231244/NfL1_1600_uzjd2e.webp 800w,
+    https://res.cloudinary.com/drfkpdjsv/image/upload/w_1200,q_100,f_auto/v1781231244/NfL1_1600_uzjd2e.webp 1200w,
+    https://res.cloudinary.com/drfkpdjsv/image/upload/w_1600,q_100,f_auto/v1781231244/NfL1_1600_uzjd2e.webp 1600w,
+    https://res.cloudinary.com/drfkpdjsv/image/upload/w_2400,q_100,f_auto/v1781231244/NfL1_1600_uzjd2e.webp 2400w"
+  sizes="(max-width: 600px) 800px, (max-width: 1000px) 1200px, (max-width: 1400px) 1600px, 2400px"
+  alt="Affinity map of 9 NfL antibodies showing log(ka) vs log(kd). A1 and I2 fall in the high-affinity zone with KD < 10 nM."
+  style="width: 100%; display: block;"
+  loading="lazy">
+  <figcaption style="padding: 0.65rem 1rem; font-size: 0.78rem; color: var(--ink-faint); font-family: 'JetBrains Mono', monospace; letter-spacing: 0.04em; border-top: 1px solid var(--rule);">Fig. 1 — Step 1: Affinity distribution of 9 NfL antibodies. KD range: 1.4–37.2 nM. A(1) and I(2) highlighted as top candidates.</figcaption>
+</figure>
+
+  </section>
+
+  <!-- STEP 2 -->
+  <section id="step2">
+    <h2>Step 2. Select: Epitope Binning to Identify the Best Antibody Pair</h2>
+
+    <h3>Technical Background</h3>
+    <p>High affinity shows that an antibody binds strongly to the target, but it does not tell us whether two antibodies can bind the target at the same time.</p>
+
+    <p>For a sandwich assay, the capture and detection antibodies must recognize distinct, accessible epitopes. If two antibodies bind the same or overlapping epitope, they compete. Even when epitopes are different, one antibody can physically block the other if the sites are too close, a phenomenon known as steric hindrance.</p>
+    
+    <p>Therefore, affinity alone is not sufficient. Epitope binning is needed to identify antibody pairs that can bind simultaneously and form a functional sandwich assay.</p>
+    
+    <h3>Experimental Procedure & Data</h3>
+    <p>NFL protein is immobilized on the optical fiber. Up to 4 antibodies are introduced sequentially with no regeneration step between injections. The signal after each addition reveals whether the incoming antibody can still access a free epitope on the fiber-bound NfL protein, or whether it is blocked by the preceding antibody.</p>
+
+    <div class="two-col">
+      <div class="feature-card">
+        <div class="feature-card-label">Blocking — Competing Pair</div>
+    
+        <p>When G(2) was introduced after I(2) had bound, no significant signal change was observed in the sensorgram, indicating that G(2) and I(2) likely compete for the same or overlapping epitope on NfL.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card-label">Non-Blocking — Compatible Pair</div>
+    
+        <p>When I(1) was introduced after I(2) had bound, the decrease in signal suggested that I(1) was able to bind after I(2), indicating that the two antibodies bind to non-competing sites on NfL.</p>
+      </div>
+    </div>
+
+<figure style="margin: 1.75rem 0; border: 1px solid var(--rule); border-radius: 8px; overflow: hidden; background: var(--surface);">
+  <img
+  src="https://res.cloudinary.com/drfkpdjsv/image/upload/v1781227952/NfL2_1600_rigjqk.webp"
+  srcset="
+    https://res.cloudinary.com/drfkpdjsv/image/upload/w_800,q_100,f_auto/v1781227952/NfL2_1600_rigjqk.webp 800w,
+    https://res.cloudinary.com/drfkpdjsv/image/upload/w_1200,q_100,f_auto/v1781227952/NfL2_1600_rigjqk.webp 1200w,
+    https://res.cloudinary.com/drfkpdjsv/image/upload/w_1600,q_100,f_auto/v1781227952/NfL2_1600_rigjqk.webp 1600w,
+    https://res.cloudinary.com/drfkpdjsv/image/upload/w_2400,q_100,f_auto/v1781227952/NfL2_1600_rigjqk.webp 2400w"
+  sizes="(max-width: 600px) 800px, (max-width: 1000px) 1200px, (max-width: 1400px) 1600px, 2400px"
+  alt="Epitope binning sensorgrams showing blocking effect when G(2) is added after I(2), and non-blocking when I(1) is added after I(2)."
+  style="width: 100%; display: block;"
+  loading="lazy">
+  <figcaption style="padding: 0.65rem 1rem; font-size: 0.78rem; color: var(--ink-faint); font-family: 'JetBrains Mono', monospace; letter-spacing: 0.04em; border-top: 1px solid var(--rule);">Fig. 2 — Step 2: Tandem epitope binning. G(2) blocked by I(2) (competing — eliminated). I(1) non-blocking with I(2) (compatible pair — selected). Signal ratio 3.7%.</figcaption>
+</figure>
+
+    <div class="callout">
+      <div class="callout-label">Unique Feature</div>
+      <p>FOPPR can sequentially introduce up to four antibodies onto the same target surface to rapidly assess epitope compatibility without regeneration between antibody injections.</p>
+   
+      <p>A signal decrease suggests that the added antibody recognizes an available, non-competing epitope. A reduced or absent signal change suggests competition, epitope overlap, or steric hindrance.</p>
+    
+    </div>
+
+    <a href="https://youtu.be/zSc1aVxIJuI" target="_blank" rel="noopener" style="display:block; margin: 1.75rem 0; border: 1px solid var(--rule); border-radius: 8px; overflow: hidden; background: var(--surface); text-decoration:none; position:relative;">
+      <img src="https://img.youtube.com/vi/zSc1aVxIJuI/maxresdefault.jpg" alt="Watch video on YouTube" loading="lazy" style="width:100%; display:block;" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/zSc1aVxIJuI/sddefault.jpg'">
+      <div style="position:absolute; top:0; left:0; right:0; bottom:0; display:flex; align-items:center; justify-content:center;">
+        <div style="width:68px; height:48px; background:rgba(0,0,0,0.7); border-radius:12px; display:flex; align-items:center; justify-content:center;">
+          <div style="width:0; height:0; border-style:solid; border-width:12px 0 12px 20px; border-color:transparent transparent transparent #fff; margin-left:4px;"></div>
+        </div>
+      </div>
+      <div style="padding:0.65rem 1rem; font-size:0.78rem; color: var(--ink-faint); font-family:'JetBrains Mono', monospace; letter-spacing:0.04em; border-top:1px solid var(--rule);">Watch on YouTube ↗</div>
+    </a>
+  </section>
+
+  <!-- STEP 3 -->
+  <section id="step3">
+    <h2>Step 3. Detect & Compare: Use the Selected Pair for Ultra-Sensitive Detection</h2>
+
+    <h3>Technical Background</h3>
+    <p>With the I(2) + A(1) pair confirmed as both high-affinity and epitope-compatible, the final step is validating detection performance using FONLISA and comparing results against SIMOA</p>
+
+    <p>The capture antibody is immobilized on an uncladded glass fiber surface. When NfL is present in the serum sample, it binds the capture antibody and subsequently recruits the detection antibody, which is conjugated to a gold nanoparticle (AuNP). The AuNP sandwich complex enters the evanescent field generated at the fiber surface as light propagates by multiple total internal reflection. The AuNP absorbs light in proportion to the analyte concentration, generating a quantifiable signal drop at the fiber output with near-zero background.</p>
+
+    <h3>Clinical Validation</h3>
+    <p>FONLISA was tested across two patient cohorts (n = 8 each). Healthy controls and KD patients known to exhibit elevated serum NfL. FONLISA distinguished the groups with statistical significance comparable to SIMOA (p = 0.0002 for controls, p = 0.0009 for KD patients), using less than 20 µL of serum per run.</p>
+
+    <div class="stat-strip">
+      <div class="stat-cell">
+        <div class="stat-num">3.39 fg/mL</div>
+        <div class="stat-label">Limit of detection for NfL in serum</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">R²=0.995</div>
+        <div class="stat-label">Calibration curve linearity (Reliable quantification within the tested range)</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">R=0.89</div>
+        <div class="stat-label">Strong correlation with SIMOA measurements across patient samples</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">~4 orders</div>
+        <div class="stat-label">Linear dynamic range (Reliable quantification within an approx. 10,000-fold concentration range).</div>
+      </div>
+    </div>
+
+<figure style="margin: 1.75rem 0; border: 1px solid var(--rule); border-radius: 8px; overflow: hidden; background: var(--surface);">
+  <img
+  src="https://res.cloudinary.com/drfkpdjsv/image/upload/v1781227952/NfL3_1600_azteoq.webp"
+  srcset="
+    https://res.cloudinary.com/drfkpdjsv/image/upload/w_800,q_100,f_auto/v1781227952/NfL3_1600_azteoq.webp 800w,
+    https://res.cloudinary.com/drfkpdjsv/image/upload/w_1200,q_100,f_auto/v1781227952/NfL3_1600_azteoq.webp 1200w,
+    https://res.cloudinary.com/drfkpdjsv/image/upload/w_1600,q_100,f_auto/v1781227952/NfL3_1600_azteoq.webp 1600w,
+    https://res.cloudinary.com/drfkpdjsv/image/upload/w_2400,q_100,f_auto/v1781227952/NfL3_1600_azteoq.webp 2400w"
+  sizes="(max-width: 600px) 800px, (max-width: 1000px) 1200px, (max-width: 1400px) 1600px, 2400px"
+  alt="Dot plot comparing SIMOA and FONLISA NfL measurements in control and KD patient serum, with FONLISA sandwich assay diagram."
+  style="width: 100%; display: block;"
+  loading="lazy">
+  <figcaption style="padding: 0.65rem 1rem; font-size: 0.78rem; color: var(--ink-faint); font-family: 'JetBrains Mono', monospace; letter-spacing: 0.04em; border-top: 1px solid var(--rule);">Fig. 3 — Step 3: FONLISA vs. SIMOA serum NfL. Control: n=8 each. KD patients: n=8 each. FONLISA LOD = 3.39 fg/mL, R²=0.995, R=0.89 vs. SIMOA. &lt;20 µL serum.</figcaption>
+</figure>
+
+    <div class="outcome-box">
+      <div class="callout-label">Outcome</div>
+      <p>The I(2) + A(1) pair was validated as a functional replacement for the discontinued NfL antibody. FONLISA matched SIMOA performance, using only 20uL of sample. Assay rebuilt in weeks, not years.</p>
+    </div>
+  </section>
+
+  <!-- COMPARISON -->
+  <section id="comparison">
+    <h2>Why FOPPR Outperforms Conventional SPR for This Task</h2>
+    
+    <h3>The dextran matrix problem</h3>
+    <p>Standard SPR sensor chips typically use a thin, flat gold surface modified with a dextran matrix to create a three-dimensional binding environment. Compared with direct immobilization on a flat 2D surface, this matrix increases surface binding capacity and can improve target accessibility, helping reduce orientation-related artifacts. However, matrix-based surfaces can also contribute to analyte retention, rebinding, and mass transport limitations, requiring extensive optimization of assay conditions to obtain reliable kinetic measurements.</p>
+    
+    <h3>FOPPR's 3D desgin for faster kinetic screening</h3>
+    <p>FOPPR uses a self-assembled gold nanoparticle monolayer on a glass fiber to create a three-dimensional sensing surface. This unobstructed architecture allows association and dissociation to occur more freely, avoiding the analyte retention and rebinding effects commonly associated with matrix-based sensor surfaces. FOPPR does not require externally driven flow. Sample delivery is driven by capillary force and gravity, creating a gentler, low-shear environment that better supports native-like binding behavior. As a result, the measured ka and kd values more closely reflect the true antibody–antigen interaction while reducing the need for extensive surface optimization or regeneration, enabling simpler and faster antibody screening.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Technology</th>
+            <th>Sensitivity</th>
+            <th>Key Limitation</th>
+            <th>FOPPR / FONLISA Advantage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Standard ELISA</td>
+            <td>pM – nM</td>
+            <td class="bad">Endpoint assay (misses fast-dissociating antibodies); insufficient sensitivity for low-abundance targets</td>
+            <td class="good">Real-time kinetics; fg/mL sensitivity</td>
+          </tr>
+          <tr>
+            <td>SIMOA</td>
+            <td>fM</td>
+            <td class="bad">Endpoint assay (no kinetic information); large instrument</td>
+            <td class="good">Real-time kinetics reveal binding behaviour; compact</td>
+          </tr>
+          <tr>
+            <td>Conventional SPR</td>
+            <td>nM – pM</td>
+            <td class="bad">Requires regeneration between cycles; precision optics and mechanical pump</td>
+            <td class="good">No regeneration needed; no mechanical fluid system</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout">
+      <div class="callout-label">Technical Summary</div> 
+      <p>FOPPR uses an unobstructed gold nanoparticle-based 3D sensing surface with capillary- and gravity-driven sample delivery, minimizing matrix-associated artifacts, reducing the need for optimization, and enabling faster antibody screening.</p>
+    </div>
+
+    <a href="https://youtu.be/uUPKGC5fJ9Y" target="_blank" rel="noopener" style="display:block; margin: 1.75rem 0; border: 1px solid var(--rule); border-radius: 8px; overflow: hidden; background: var(--surface); text-decoration:none; position:relative;">
+      <img src="https://img.youtube.com/vi/uUPKGC5fJ9Y/maxresdefault.jpg" alt="Watch video on YouTube" loading="lazy" style="width:100%; display:block;" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/uUPKGC5fJ9Y/sddefault.jpg'">
+      <div style="position:absolute; top:0; left:0; right:0; bottom:0; display:flex; align-items:center; justify-content:center;">
+        <div style="width:68px; height:48px; background:rgba(0,0,0,0.7); border-radius:12px; display:flex; align-items:center; justify-content:center;">
+          <div style="width:0; height:0; border-style:solid; border-width:12px 0 12px 20px; border-color:transparent transparent transparent #fff; margin-left:4px;"></div>
+        </div>
+      </div>
+      <div style="padding:0.65rem 1rem; font-size:0.78rem; color: var(--ink-faint); font-family:'JetBrains Mono', monospace; letter-spacing:0.04em; border-top:1px solid var(--rule);">Watch on YouTube ↗</div>
+    </a>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item" itemscope itemtype="https://schema.org/Question">
+      <div class="faq-q" itemprop="name">How do I replace a discontinued antibody without rebuilding my assay from scratch?</div>
+      <div class="faq-a" itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
+        <span itemprop="text">Use FOPPR to screen multiple commercial alternatives simultaneously for binding kinetics (Ka, Kd, KD). From the top-affinity candidates, run epitope binning on a single chip to identify a non-competing pair suitable for a sandwich configuration. Validate the new pair with FONLISA.</span>
+      </div>
+    </div>
+
+    <div class="faq-item" itemscope itemtype="https://schema.org/Question">
+      <div class="faq-q" itemprop="name">How does FOPPR differ from conventional SPR for antibody screening?</div>
+      <div class="faq-a" itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
+        <span itemprop="text">SPR dextran matrices increase binding capacity, but may trap analytes and promote rebinding, requiring extensive optimization of ligand density, flow rate, and regeneration conditions. In contrast, FOPPR uses a dextran-free gold nanoparticle 3D surface with capillary- and gravity-driven sample delivery, allowing freer binding and dissociation with minimal optimization. Because FOPPR does not require regeneration between measurements, it enables faster and simpler antibody screening.</span>
+      </div>
+    </div>
+
+    <div class="faq-item" itemscope itemtype="https://schema.org/Question">
+      <div class="faq-q" itemprop="name">How sensitive is FONLISA for NfL detection compared to SIMOA?</div>
+      <div class="faq-a" itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
+        <span itemprop="text">An R value of 0.98 indicates a strong correlation between FONLISA and SIMOA measurements, meaning both methods show similar NfL trends across patient samples.</span>
+      </div>
+    </div>
+
+    <div class="faq-item" itemscope itemtype="https://schema.org/Question">
+      <div class="faq-q" itemprop="name">How many antibodies can FOPPR screen in a single run?</div>
+      <div class="faq-a" itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
+        <span itemprop="text">For epitope binning, FOPPR can sequentially test up to four antibodies on a single chip without regeneration between injections. For ultrasensitive detection, each chip measures one antibody–analyte interaction at a time. However, the D8 system can run up to eight chips in parallel, enabling efficient screening of multiple candidates.</span>
+      </div>
+    </div>
+  </section>
+
+  <a href="https://youtu.be/yNPXj9eCRys" target="_blank" rel="noopener" style="display:block; margin: 1.75rem 0; border: 1px solid var(--rule); border-radius: 8px; overflow: hidden; background: var(--surface); text-decoration:none; position:relative;">
+    <img src="https://img.youtube.com/vi/yNPXj9eCRys/hqdefault.jpg" alt="Watch video on YouTube" loading="lazy" style="width:100%; display:block;">
+    <div style="position:absolute; top:0; left:0; right:0; bottom:0; display:flex; align-items:center; justify-content:center;">
+      <div style="width:68px; height:48px; background:rgba(0,0,0,0.7); border-radius:12px; display:flex; align-items:center; justify-content:center;">
+        <div style="width:0; height:0; border-style:solid; border-width:12px 0 12px 20px; border-color:transparent transparent transparent #fff; margin-left:4px;"></div>
+      </div>
+    </div>
+    <div style="padding:0.65rem 1rem; font-size:0.78rem; color: var(--ink-faint); font-family:'JetBrains Mono', monospace; letter-spacing:0.04em; border-top:1px solid var(--rule);">Watch on YouTube ↗</div>
+  </a>
+
+</div>
+</main>
+
+<footer>
+  <p><strong>FOPPR + FONLISA Technical Whitepaper</strong> — <a href="https://www.instantnano.com/" target="_blank" rel="noopener">Instant NanoBiosensors</a></p>
+  <p style="margin-top:0.5rem;">For scientific inquiries, clinical partnership, or collaboration projects, email our tech support team: fts@instantnano.com</p>
+</footer>
+
+
+</body>
+</html>
