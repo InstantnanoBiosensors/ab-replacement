@@ -91,7 +91,7 @@ content="summary_large_image">
         "Step 3. Detect & Compare: Use the Selected Pair for Ultra-Sensitive Detection",
         "Validate: Peer-Reviewed Evidence in Human Plasma",
         "How FOPPR Differs from Conventional SPR for Antibody Screening",
-        "See It In Action: Request a Complimentary Technical Demo",
+        "See FOPPR and FONLISA in Action",
         "Frequently Asked Questions",
         "See the FOPPR Workflow"
       ],
@@ -275,7 +275,7 @@ content="summary_large_image">
   }
   .header-meta {
     margin-top: 2.5rem;
-    display: flex; flex-wrap: wrap; gap: 1.5rem;
+    display: flex; flex-wrap: wrap; gap: 1rem;
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.7rem;
     color: var(--white);
@@ -342,6 +342,27 @@ content="summary_large_image">
     padding: 1.1rem 1.4rem;
     border-radius: 0 6px 6px 0;
     margin: 1.75rem 0;
+  }
+  .mid-cta {
+    max-width: 860px;
+    margin: 0 auto 4rem;
+    padding: 2rem 2.5rem;
+    background: var(--ink);
+    border-radius: 10px;
+    text-align: center;
+  }
+  .mid-cta p {
+    color: var(--white);
+    font-size: 1.02rem;
+    max-width: 560px;
+    margin: 0 auto 1.25rem;
+    line-height: 1.6;
+  }
+  .mid-cta .cta-button { margin-top: 0; }
+  .demo-reassurance {
+    margin-top: 0.6rem;
+    font-size: 0.85rem;
+    color: var(--ink-muted);
   }
   .callout-label {
     font-family: 'JetBrains Mono', monospace;
@@ -516,7 +537,7 @@ content="summary_large_image">
     display: inline-block;
     margin-top: 0.5rem;
     padding: 0.9rem 1.8rem;
-    background: var(--accent);
+    background: #1a6bbf;
     color: var(--white);
     font-family: 'DM Sans', sans-serif;
     font-size: 0.93rem;
@@ -526,7 +547,19 @@ content="summary_large_image">
     letter-spacing: 0.02em;
     transition: background 0.15s;
   }
-  .cta-button:hover { background: var(--accent-mid); }
+  .cta-button:hover { background: #3a8fdd; }
+  .hero-cta {
+    margin-top: 2rem;
+    display: flex; flex-wrap: wrap; align-items: center; gap: 1.5rem;
+  }
+  .hero-cta-secondary {
+    color: rgba(255,255,255,0.75);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .hero-cta-secondary:hover { color: var(--white); }
 
   footer {
     background: var(--surface);
@@ -564,6 +597,13 @@ content="summary_large_image">
       <span>3.39 fg/mL LoD for NfL</span>
       <span>R = 0.89 vs SIMOA</span>
       <span>9 antibodies screened, 1 pair selected</span>
+      <span>published patient-sample evidence</span>
+    </div>
+    <div class="hero-cta">
+      <a href="#demo-tally-form" class="cta-button" data-umami-event="demo-cta-top-click">Request a Complimentary Technical Demo</a>
+      <a href="#problem" class="hero-cta-secondary">Read the case study ↓</a>
+    </div>
+    <div class="header-meta" style="margin-top: 1.25rem;">
       <span>
         Published
         <time datetime="2026-06-15">June 15, 2026</time>
@@ -876,6 +916,12 @@ content="summary_large_image">
     </div>
   </section>
 
+  <!-- MID-PAGE CTA -->
+  <div class="mid-cta">
+    <p>Struggling with antibody selection or low-abundance biomarker detection? Talk to our technical team and see how the FOPPR–FONLISA workflow could accelerate your assay development.</p>
+    <a href="#demo-tally-form" class="cta-button" data-umami-event="demo-cta-mid-click">Request a Complimentary Technical Demo</a>
+  </div>
+
   <!-- COMPARISON -->
   <section id="comparison">
     <h2>How FOPPR Differs from Conventional SPR for Antibody Screening</h2>
@@ -937,8 +983,8 @@ content="summary_large_image">
 
   <!-- DEMO -->
   <section id="demo">
-    <h2>See It In Action: Request a Complimentary Technical Demo</h2>
-    <p>Ready to see how FOPPR and FONLISA can help you screen, select, and validate antibody pairs for your own assay? Request a live demo and our team will walk you through the workflow.</p>
+    <h2>See FOPPR and FONLISA in Action</h2>
+    <p>Share your biomarker or assay challenge. Our technical team will discuss how the FOPPR–FONLISA workflow may support your project and arrange a complimentary demo—no obligation.</p>
 
     <div class="table-wrap" style="margin-top: 1.75rem; border: 1px solid var(--rule);">
       <iframe
